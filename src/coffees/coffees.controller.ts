@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -37,5 +38,10 @@ export class CoffeesController {
   @Patch(":id")
   update(@Param("id") id: string, @Body() body) {
     return `This action updates #${id} coffee`;
+  }
+
+  @Delete(":id")
+  remove(@Param("id") id: string) {
+    return `This action removes #${id} coffee`;
   }
 }
