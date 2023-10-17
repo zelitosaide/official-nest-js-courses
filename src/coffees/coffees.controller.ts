@@ -12,9 +12,12 @@ import {
   Res,
 } from "@nestjs/common";
 import { Response } from "express";
+import { CoffeesService } from "./coffees.service";
 
 @Controller("coffees")
 export class CoffeesController {
+  constructor(private readonly coffeesService: CoffeesService) {}
+
   // @Get("flavors")
   @Get()
   // findAll(@Res() response: Response) {
