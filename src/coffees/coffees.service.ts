@@ -131,8 +131,6 @@ export class CoffeesService {
     });
   }
 
-
-
   // async recommendCoffee(coffee: Coffee) {
   async recommendCoffee(id: string) {
     const coffee = await this.findOne(id);
@@ -151,7 +149,7 @@ export class CoffeesService {
 
       await queryRunner.manager.save(coffee);
       await queryRunner.manager.save(recommendEvent);
-      
+
       await queryRunner.commitTransaction();
     } catch (error) {
       await queryRunner.rollbackTransaction();
