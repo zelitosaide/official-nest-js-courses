@@ -14,9 +14,10 @@ import { Response } from "express";
 export class CoffeesController {
   // @Get("flavors")
   @Get()
-  findAll(@Res() response: Response) {
-    // return "This action returns all coffees";
-    response.status(200).send("This action returns all coffees");
+  // findAll(@Res() response: Response) {
+  findAll() {
+    // response.status(200).send("This action returns all coffees");
+    return "This action returns all coffees";
   }
 
   @Get(":id")
