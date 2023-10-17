@@ -5,6 +5,7 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Post,
   Res,
 } from "@nestjs/common";
@@ -31,5 +32,10 @@ export class CoffeesController {
   // create(@Body("name") body) {
   create(@Body() body) {
     return body;
+  }
+
+  @Patch(":id")
+  update(@Param("id") id: string, @Body() body) {
+    return `This action updates #${id} coffee`;
   }
 }
