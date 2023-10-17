@@ -19,4 +19,8 @@ export class CoffeesService {
   findOne(id: string) {
     return this.coffees.find(item => item.id === +id)
   }
+
+  create(createCoffeeDto: any) {
+    this.coffees.push(createCoffeeDto);
+  }
 }
