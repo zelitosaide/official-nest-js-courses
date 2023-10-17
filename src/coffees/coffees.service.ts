@@ -72,10 +72,13 @@ export class CoffeesService {
     return this.coffeeRepository.save(coffee);
   }
 
-  remove(id: string) {
+  // remove(id: string) {
+  async remove(id: string) {
     // const coffeeIndex = this.coffees.findIndex((item) => item.id === +id);
     // if (coffeeIndex >= 0) {
     //   this.coffees.splice(coffeeIndex, 1);
     // }
+    const coffee = await this.findOne(id);
+    return this.coffeeRepository.remove(coffee);
   }
 }
