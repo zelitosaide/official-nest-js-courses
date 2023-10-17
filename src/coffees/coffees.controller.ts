@@ -28,8 +28,7 @@ export class CoffeesController {
     // const { limit, offset } = paginationQuery;
     // response.status(200).send("This action returns all coffees");
     // return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
-    console.log(paginationQuery);
-    return this.coffeesService.findAll();
+    return this.coffeesService.findAll(paginationQuery);
   }
 
   @Get("flavors")
