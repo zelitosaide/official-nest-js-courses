@@ -22,9 +22,10 @@ export class CoffeesController {
   @Get()
   // findAll(@Res() response: Response) {
   findAll(@Query() paginationQuery) {
-    const { limit, offset } = paginationQuery;
+    // const { limit, offset } = paginationQuery;
     // response.status(200).send("This action returns all coffees");
-    return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
+    // return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
+    return this.coffeesService.findAll();
   }
 
   @Get(":id")
