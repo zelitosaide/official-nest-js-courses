@@ -116,4 +116,12 @@ export class CoffeesService {
     }
     return this.flavorRepository.create({ name });
   }
+
+  findAllFlavors() {
+    return this.flavorRepository.find({
+      // relations: {
+      //   flavors: true,
+      // },
+    });
+  }
 }
