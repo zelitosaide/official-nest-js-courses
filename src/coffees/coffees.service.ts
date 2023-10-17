@@ -11,4 +11,12 @@ export class CoffeesService {
       flavors: ["chocolate", "vanilla"],
     }
   ];
+
+  findAll() {
+    return this.coffees;
+  }
+
+  findOne(id: string) {
+    return this.coffees.find(item => item.id === +id)
+  }
 }
