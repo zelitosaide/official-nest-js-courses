@@ -14,7 +14,7 @@ export class CoffeesService {
     @InjectRepository(Coffee)
     private readonly coffeeRepository: Repository<Coffee>,
   ) {}
-  
+
   // private coffees: Coffee[] = [
   //   {
   //     id: 1,
@@ -26,9 +26,11 @@ export class CoffeesService {
 
   findAll() {
     // return this.coffees;
+    return this.coffeeRepository.find();
   }
 
-  findOne(id: string) {
+  // findOne(id: string) {
+  async findOne(id: string) {
     // throw "A random error";
     // throw new Error();
     // const coffee = this.coffees.find((item) => item.id === +id);
@@ -37,6 +39,11 @@ export class CoffeesService {
     //   throw new NotFoundException(`Coffee #${id} not found`);
     // }
     // return coffee;
+    const coffee = await this.coffeeRepository.findOne({ where: { id: +id}});
+    if (!coffee) {
+      throw new NotFoundException(`Coffee #${id} not found`);
+    }
+    return coffee;
   }
 
   create(createCoffeeDto: any) {
