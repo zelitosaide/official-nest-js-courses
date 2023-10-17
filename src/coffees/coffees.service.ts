@@ -7,6 +7,7 @@ import {
 import { Coffee } from "./entities/coffee.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
+import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 
 @Injectable()
 export class CoffeesService {
@@ -46,7 +47,8 @@ export class CoffeesService {
     return coffee;
   }
 
-  create(createCoffeeDto: any) {
+  // create(createCoffeeDto: any) {
+  create(createCoffeeDto: CreateCoffeeDto) {
     // this.coffees.push(createCoffeeDto);
     // return createCoffeeDto;
     const coffee = this.coffeeRepository.create(createCoffeeDto);
