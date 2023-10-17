@@ -120,7 +120,7 @@ export class CoffeesService {
   findAllFlavors() {
     return this.flavorRepository.find({
       // relations: {
-      //   flavors: true,
+      //   coffees: true,
       // },
     });
   }
