@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from "@nestjs/common";
 
 @Controller("coffees")
 export class CoffeesController {
@@ -15,6 +15,7 @@ export class CoffeesController {
   }
 
   @Post()
+  @HttpCode(HttpStatus.GONE)
   // create(@Body("name") body) {
   create(@Body() body) {
     return body;
