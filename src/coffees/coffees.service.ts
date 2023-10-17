@@ -61,10 +61,17 @@ export class CoffeesService {
   }
 
   // create(createCoffeeDto: any) {
-  create(createCoffeeDto: CreateCoffeeDto) {
+  // create(createCoffeeDto: CreateCoffeeDto) {
+  async create(createCoffeeDto: CreateCoffeeDto) {
     // this.coffees.push(createCoffeeDto);
     // return createCoffeeDto;
-    const coffee = this.coffeeRepository.create(createCoffeeDto);
+    const flavors = await Promise.all(
+      createCoffeeDto.flavors.map((name) => this.preloadFlavorByName(name)),
+    );
+    const coffee = this.coffeeRepository.create({
+      ...createCoffeeDto,
+      flavors,
+    });
     return this.coffeeRepository.save(coffee);
   }
 
@@ -74,9 +81,15 @@ export class CoffeesService {
     // if (existingCoffee) {
     //   // update the existing entity
     // }
+    const flavors =
+      updateCoffeeDto.flavors &&
+      (await Promise.all(
+        updateCoffeeDto.flavors.map((name) => this.preloadFlavorByName(name)),
+      ));
     const coffee = await this.coffeeRepository.preload({
       id: +id,
       ...updateCoffeeDto,
+      flavors,
     });
     if (!coffee) {
       throw new NotFoundException(`Coffee #${id} not found`);

@@ -25,5 +25,6 @@ export class Coffee {
     // cascade: ["insert", "update"],
     cascade: true,
   })
-  flavors: string[];
+  // flavors: string[];
+  flavors: Flavor[];
 }
