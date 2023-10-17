@@ -32,7 +32,9 @@ export class CoffeesController {
 
   @Get(":id")
   // findOne(@Param() params) {
+  // findOne(@Param("id") id: number) {
   findOne(@Param("id") id: string) {
+    // console.log(typeof id);
     // return `This action returns #${id} coffee`;
     return this.coffeesService.findOne(id);
   }
