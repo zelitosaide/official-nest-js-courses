@@ -62,6 +62,11 @@ export class CoffeesController {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
 
+  @Patch(":id/recommend")
+  recommendCoffee(@Param("id") id: string) {
+    return this.coffeesService.recommendCoffee(id);
+  }
+
   @Delete(":id")
   remove(@Param("id") id: string) {
     // return `This action removes #${id} coffee`;
