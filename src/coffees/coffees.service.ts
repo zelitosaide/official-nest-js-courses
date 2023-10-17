@@ -21,6 +21,8 @@ export class CoffeesService {
     @InjectRepository(Flavor)
     private readonly flavorRepository: Repository<Flavor>,
     private readonly dataSource: DataSource,
+    @InjectRepository(Event)
+    private readonly eventRepository: Repository<Event>,
   ) {}
 
   // private coffees: Coffee[] = [
@@ -156,5 +158,9 @@ export class CoffeesService {
     } finally {
       await queryRunner.release();
     }
+  }
+
+  findAllEvents() {
+    return this.eventRepository.find();
   }
 }
