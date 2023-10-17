@@ -7,4 +7,6 @@ export class Flavor {
 
   @Column()
   name: string;
+
+  coffees: Flavor[];
 }
