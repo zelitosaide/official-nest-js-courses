@@ -1,4 +1,7 @@
-import { Entity } from "typeorm";
+import { Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Flavor {}
+export class Flavor {
+  @PrimaryGeneratedColumn()
+  id: number;
+}
