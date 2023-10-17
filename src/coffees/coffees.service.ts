@@ -8,6 +8,7 @@ import { Coffee } from "./entities/coffee.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
+import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 
 @Injectable()
 export class CoffeesService {
@@ -40,7 +41,7 @@ export class CoffeesService {
     //   throw new NotFoundException(`Coffee #${id} not found`);
     // }
     // return coffee;
-    const coffee = await this.coffeeRepository.findOne({ where: { id: +id}});
+    const coffee = await this.coffeeRepository.findOne({ where: { id: +id } });
     if (!coffee) {
       throw new NotFoundException(`Coffee #${id} not found`);
     }
@@ -55,11 +56,20 @@ export class CoffeesService {
     return this.coffeeRepository.save(coffee);
   }
 
-  update(id: string, updateCoffeeDto: any) {
+  // update(id: string, updateCoffeeDto: any) {
+  async update(id: string, updateCoffeeDto: UpdateCoffeeDto) {
     // const existingCoffee = this.findOne(id);
     // if (existingCoffee) {
     //   // update the existing entity
     // }
+    const coffee = await this.coffeeRepository.preload({
+      id: +id,
+      ...updateCoffeeDto,
+    });
+    if (!coffee) {
+      throw new NotFoundException(`Coffee #${id} not found`);
+    }
+    return this.coffeeRepository.save(coffee);
   }
 
   remove(id: string) {
