@@ -14,6 +14,7 @@ import {
 // import { Response } from "express";
 import { CoffeesService } from "./coffees.service";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
+import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 
 @Controller("coffees")
 export class CoffeesController {
@@ -46,9 +47,10 @@ export class CoffeesController {
   }
 
   @Patch(":id")
-  update(@Param("id") id: string, @Body() body) {
+  // update(@Param("id") id: string, @Body() body) {
+  update(@Param("id") id: string, @Body() updateCoffeeDto: UpdateCoffeeDto) {
     // return `This action updates #${id} coffee`;
-    return this.coffeesService.update(id, body);
+    return this.coffeesService.update(id, updateCoffeeDto);
   }
 
   @Delete(":id")
