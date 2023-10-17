@@ -49,6 +49,8 @@ export class CoffeesService {
   create(createCoffeeDto: any) {
     // this.coffees.push(createCoffeeDto);
     // return createCoffeeDto;
+    const coffee = this.coffeeRepository.create(createCoffeeDto);
+    return this.coffeeRepository.save(coffee);
   }
 
   update(id: string, updateCoffeeDto: any) {
