@@ -15,6 +15,7 @@ export class CoffeesController {
   }
 
   @Post()
+  // create(@Body("name") body) {
   create(@Body() body) {
     return body;
   }
