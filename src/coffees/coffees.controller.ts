@@ -36,6 +36,11 @@ export class CoffeesController {
     return this.coffeesService.findAllFlavors();
   }
 
+  @Get("events")
+  findAllEvents(@Query() paginationQuery) {
+    return this.coffeesService.findAllEvents();
+  }
+
   @Get(":id")
   // findOne(@Param() params) {
   // findOne(@Param("id") id: number) {
