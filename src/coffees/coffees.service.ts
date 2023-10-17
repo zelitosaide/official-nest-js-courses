@@ -6,7 +6,7 @@ import {
 } from "@nestjs/common";
 import { Coffee } from "./entities/coffee.entity";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { DataSource, Repository } from "typeorm";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 import { Flavor } from "./entities/flavor.entity";
@@ -19,6 +19,7 @@ export class CoffeesService {
     private readonly coffeeRepository: Repository<Coffee>,
     @InjectRepository(Flavor)
     private readonly flavorRepository: Repository<Flavor>,
+    private readonly dataSource: DataSource,
   ) {}
 
   // private coffees: Coffee[] = [
@@ -127,5 +128,12 @@ export class CoffeesService {
       //   coffees: true,
       // },
     });
+  }
+
+  async recommendCoffee(coffee: Coffee) {
+    const queryRunner = this.dataSource.createQueryRunner();
+
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
   }
 }
