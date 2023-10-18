@@ -16,5 +16,6 @@ import { Event } from "src/events/entities/event.entity";
       useClass: CoffeesService,
     },
   ],
+  exports: [CoffeesService]
 })
 export class CoffeesModule {}
