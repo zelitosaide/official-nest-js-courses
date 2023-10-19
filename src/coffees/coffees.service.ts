@@ -16,7 +16,7 @@ import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
 import { Event } from "src/events/entities/event.entity";
 import { COFFEE_BRANDS } from "./coffees.constants";
 
-@Injectable()
+// @Injectable()
 // @Injectable({ scope: Scope.DEFAULT })
 // @Injectable({ scope: Scope.TRANSIENT })
 @Injectable({ scope: Scope.REQUEST })
