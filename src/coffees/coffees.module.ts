@@ -64,11 +64,11 @@ import { Connection } from "typeorm";
     //     brandsFactory.create(),
     //   inject: [CoffeeBrandsFactory],
     // },
-    {
-      provide: COFFEE_BRANDS,
-      useFactory: () => ["buddy brew", "nescafe"],
-      scope: Scope.TRANSIENT,
-    }
+    // {
+    //   provide: COFFEE_BRANDS,
+    //   useFactory: () => ["buddy brew", "nescafe"],
+    //   scope: Scope.TRANSIENT,
+    // }
   ],
   exports: [CoffeesService],
 })
