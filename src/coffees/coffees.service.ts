@@ -32,7 +32,7 @@ export class CoffeesService {
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
   ) {
     console.log(coffeeBrands);
-    // console.log("CoffeesService Instantiated");
+    console.log("CoffeesService Instantiated");
   }
 
   // private coffees: Coffee[] = [
