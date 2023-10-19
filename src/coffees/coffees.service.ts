@@ -4,7 +4,7 @@ import {
   // HttpStatus,
   Injectable,
   NotFoundException,
-  Scope,
+  // Scope,
 } from "@nestjs/common";
 import { Coffee } from "./entities/coffee.entity";
 import { InjectRepository } from "@nestjs/typeorm";
@@ -31,8 +31,8 @@ export class CoffeesService {
     private readonly eventRepository: Repository<Event>,
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
   ) {
-    // console.log(coffeeBrands);
-    console.log("CoffeesService Instantiated");
+    console.log(coffeeBrands);
+    // console.log("CoffeesService Instantiated");
   }
 
   // private coffees: Coffee[] = [
