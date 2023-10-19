@@ -1,4 +1,5 @@
 import {
+  Inject,
   // HttpException,
   // HttpStatus,
   Injectable,
@@ -23,7 +24,10 @@ export class CoffeesService {
     private readonly dataSource: DataSource,
     @InjectRepository(Event)
     private readonly eventRepository: Repository<Event>,
-  ) {}
+    @Inject("COFFEE_BRANDS") coffeeBrands: string[],
+  ) {
+    console.log(coffeeBrands);
+  }
 
   // private coffees: Coffee[] = [
   //   {
