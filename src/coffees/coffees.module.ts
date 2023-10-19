@@ -55,7 +55,7 @@ import { Connection } from "typeorm";
         return coffeeBrands;
       },
       inject: [Connection],
-    }
+    },
     // CoffeeBrandsFactory,
     // {
     //   provide: COFFEE_BRANDS,
