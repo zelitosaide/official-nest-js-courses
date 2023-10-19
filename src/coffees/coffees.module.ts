@@ -13,13 +13,13 @@ import { COFFEE_BRANDS } from "./coffees.constants";
 // class DevelopmentConfigService {}
 // class ProductionConfigService {}
 
-@Injectable()
-export class CoffeeBrandsFactory {
-  create() {
-    // do something ...
-    return ["buddy brew", "nescafe"];
-  }
-}
+// @Injectable()
+// export class CoffeeBrandsFactory {
+//   create() {
+//     // do something ...
+//     return ["buddy brew", "nescafe"];
+//   }
+// }
 
 @Module({
   imports: [TypeOrmModule.forFeature([Coffee, Flavor, Event])],
@@ -45,14 +45,18 @@ export class CoffeeBrandsFactory {
     //       ? DevelopmentConfigService
     //       : ProductionConfigService,
     // },
-    CoffeeBrandsFactory,
     {
       provide: COFFEE_BRANDS,
-      // useFactory: () => ["buddy brew", "nescafe"],
-      useFactory: (brandsFactory: CoffeeBrandsFactory) =>
-        brandsFactory.create(),
-      inject: [CoffeeBrandsFactory],
-    },
+      useFactory: () => ["buddy brew", "nescafe"],
+    }
+    // CoffeeBrandsFactory,
+    // {
+    //   provide: COFFEE_BRANDS,
+    //   // useFactory: () => ["buddy brew", "nescafe"],
+    //   useFactory: (brandsFactory: CoffeeBrandsFactory) =>
+    //     brandsFactory.create(),
+    //   inject: [CoffeeBrandsFactory],
+    // },
   ],
   exports: [CoffeesService],
 })
