@@ -31,7 +31,7 @@ export class CoffeesService {
     private readonly eventRepository: Repository<Event>,
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
   ) {
-    console.log(coffeeBrands);
+    // console.log(coffeeBrands);
     console.log("CoffeesService Instantiated");
   }
 
