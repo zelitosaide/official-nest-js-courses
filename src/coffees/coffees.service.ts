@@ -16,8 +16,10 @@ import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
 import { Event } from "src/events/entities/event.entity";
 import { COFFEE_BRANDS } from "./coffees.constants";
 
-// @Injectable()
-@Injectable({ scope: Scope.DEFAULT })
+@Injectable()
+// @Injectable({ scope: Scope.DEFAULT })
+// @Injectable({ scope: Scope.TRANSIENT })
+@Injectable({ scope: Scope.REQUEST })
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
@@ -30,6 +32,7 @@ export class CoffeesService {
     @Inject(COFFEE_BRANDS) coffeeBrands: string[],
   ) {
     console.log(coffeeBrands);
+    // console.log("CoffeesService Instantiated");
   }
 
   // private coffees: Coffee[] = [
