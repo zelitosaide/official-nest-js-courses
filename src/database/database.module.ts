@@ -1,10 +1,11 @@
 import { DynamicModule, Module } from "@nestjs/common";
 import { DataSource, DataSourceOptions } from "typeorm";
+import { CONNECTION } from "./database.constants";
 
 @Module({
   // providers: [
   //   {
-  //     provide: "CONNECTION",
+  //     provide: CONNECTION,
   //     useValue: new DataSource({
   //       type: "postgres",
   //       host: "localhost",
@@ -21,7 +22,7 @@ export class DatabaseModule {
       module: DatabaseModule,
       providers: [
         {
-          provide: "CONNECTION",
+          provide: CONNECTION,
           useValue: new DataSource(options).initialize(),
         },
       ],
