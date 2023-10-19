@@ -68,7 +68,7 @@ import { Connection } from "typeorm";
       provide: COFFEE_BRANDS,
       useFactory: () => ["buddy brew", "nescafe"],
       // scope: Scope.TRANSIENT,
-    }
+    },
   ],
   exports: [CoffeesService],
 })
