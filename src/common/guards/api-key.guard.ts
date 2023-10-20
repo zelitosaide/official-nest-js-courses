@@ -17,10 +17,10 @@ export class ApiKeyGuard implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest<Request>();
     const authHeader = request.header("Authorization");
-    const userAgent = request.header("User-Agent");
-    const contentType = request.header("Content-Type");
-    const body = request.body;
-    console.log({ authHeader, userAgent, contentType, body });
+    // const userAgent = request.header("User-Agent");
+    // const contentType = request.header("Content-Type");
+    // const body = request.body;
+    // console.log({ authHeader, userAgent, contentType, body });
     const isPublic = this.reflector.get(IS_PUBLIC_KEY, context.getHandler());
     if (isPublic) {
       return true;
