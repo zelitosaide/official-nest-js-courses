@@ -13,6 +13,7 @@ import { COFFEE_BRANDS } from "./coffees.constants";
 // import { Connection } from "typeorm";
 import { ConfigModule } from "@nestjs/config";
 import coffeesConfig from "./config/coffees.config";
+// import { CommonModule } from "src/common/common.module";
 
 // class MockCoffeesService {}
 
@@ -33,6 +34,7 @@ import coffeesConfig from "./config/coffees.config";
     TypeOrmModule.forFeature([Coffee, Flavor, Event]),
     // ConfigModule,
     ConfigModule.forFeature(coffeesConfig),
+    // CommonModule,
   ],
   controllers: [CoffeesController],
   // providers: [CoffeesService],
