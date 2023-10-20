@@ -59,6 +59,7 @@ export class CoffeesController {
     return this.coffeesService.findAllEvents();
   }
 
+  @Public()
   @Get(":id")
   // findOne(@Param() params) {
   // findOne(@Param("id") id: number) {
