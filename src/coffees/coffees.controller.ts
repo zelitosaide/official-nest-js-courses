@@ -10,6 +10,7 @@ import {
   Patch,
   Post,
   Query,
+  SetMetadata,
   UsePipes,
   ValidationPipe,
   // Res,
@@ -35,6 +36,7 @@ export class CoffeesController {
 
   // @Get("flavors")
   // @UsePipes(ValidationPipe)
+  @SetMetadata("isPublic", true)
   @Get()
   // findAll(@Res() response: Response) {
   findAll(@Query() paginationQuery: PaginationQueryDto) {
