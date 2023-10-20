@@ -4,11 +4,13 @@ import {
   Injectable,
   NestInterceptor,
 } from "@nestjs/common";
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 
 @Injectable()
 export class WrapResponseInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    return next.handle();
+    console.log("Before...");
+
+    return next.handle().pipe(tap((data) => console.log("After...", data)));
   }
 }
