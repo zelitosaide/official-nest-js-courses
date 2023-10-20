@@ -42,10 +42,12 @@ export class CoffeesController {
   @Public()
   @Get()
   // findAll(@Res() response: Response) {
-  findAll(@Query() paginationQuery: PaginationQueryDto) {
+  // findAll(@Query() paginationQuery: PaginationQueryDto) {
+  async findAll(@Query() paginationQuery: PaginationQueryDto) {
     // const { limit, offset } = paginationQuery;
     // response.status(200).send("This action returns all coffees");
     // return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
+    await new Promise(resolve => setTimeout(resolve, 5000));
     return this.coffeesService.findAll(paginationQuery);
   }
 
