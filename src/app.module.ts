@@ -7,11 +7,22 @@ import { CoffeesModule } from "./coffees/coffees.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoffeeRatingModule } from "./coffee-rating/coffee-rating.module";
 import { ConfigModule } from "@nestjs/config";
+import * as Joi from "joi";
 // import { DatabaseModule } from "./database/database.module";
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      // envFilePath: ".environment",
+      // envFilePath: ".env",
+      // envFilePath: [".env", ".environment"],
+      // ignoreEnvFile: true,
+      validationSchema: Joi.object({
+        DATABASE_HOST: Joi.required(),
+        DATABASE_PASSWORD: Joi.required(),
+        DATABASE_PORT: Joi.number().default(5433),
+      }),
+    }),
     CoffeesModule,
     TypeOrmModule.forRoot({
       type: "postgres", // type of our database
