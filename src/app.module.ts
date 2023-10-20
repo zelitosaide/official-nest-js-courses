@@ -14,6 +14,7 @@ import * as Joi from "joi";
 import appConfig from "./config/app.config";
 // import { APP_PIPE } from "@nestjs/core";
 // import { DatabaseModule } from "./database/database.module";
+import { CommonModule } from "./common/common.module";
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import appConfig from "./config/app.config";
     //   synchronize: true, // your entities will be synced with the database(recommended: disable in prod)
     // }),
     CoffeeRatingModule,
+    CommonModule,
     // DatabaseModule,
   ],
   controllers: [
