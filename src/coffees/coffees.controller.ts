@@ -10,6 +10,8 @@ import {
   Patch,
   Post,
   Query,
+  // UsePipes,
+  // ValidationPipe,
   // Res,
 } from "@nestjs/common";
 // import { Response } from "express";
@@ -20,6 +22,7 @@ import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
 // import { REQUEST } from "@nestjs/core";
 // import { Request } from "express";
 
+// @UsePipes(ValidationPipe)
 @Controller("coffees")
 export class CoffeesController {
   constructor(
