@@ -20,6 +20,7 @@ import { CoffeesService } from "./coffees.service";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
+import { Public } from "src/common/decorators/public.decorator";
 // import { REQUEST } from "@nestjs/core";
 // import { Request } from "express";
 
@@ -36,7 +37,8 @@ export class CoffeesController {
 
   // @Get("flavors")
   // @UsePipes(ValidationPipe)
-  @SetMetadata("isPublic", true)
+  // @SetMetadata("isPublic", true)
+  @Public()
   @Get()
   // findAll(@Res() response: Response) {
   findAll(@Query() paginationQuery: PaginationQueryDto) {
