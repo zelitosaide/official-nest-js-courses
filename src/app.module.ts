@@ -1,4 +1,7 @@
-import { Module } from "@nestjs/common";
+import {
+  Module,
+  // ValidationPipe,
+} from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 // import { CoffeesController } from "./coffees/coffees.controller";
@@ -9,6 +12,7 @@ import { CoffeeRatingModule } from "./coffee-rating/coffee-rating.module";
 import { ConfigModule } from "@nestjs/config";
 import * as Joi from "joi";
 import appConfig from "./config/app.config";
+// import { APP_PIPE } from "@nestjs/core";
 // import { DatabaseModule } from "./database/database.module";
 
 @Module({
@@ -57,7 +61,11 @@ import appConfig from "./config/app.config";
   ],
   providers: [
     AppService,
-    // CoffeesService
+    // CoffeesService,
+    // {
+    //   provide: APP_PIPE,
+    //   useClass: ValidationPipe
+    // },
   ],
 })
 export class AppModule {}
