@@ -10,7 +10,7 @@ import {
   Patch,
   Post,
   Query,
-  SetMetadata,
+  // SetMetadata,
   // SetMetadata,
   // UsePipes,
   // ValidationPipe,
@@ -23,6 +23,7 @@ import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
 import { Public } from "src/common/decorators/public.decorator";
 import { ParseIntPipe } from "src/common/pipes/parse-int.pipe";
+import { Protocol } from "src/common/decorators/protocol.decorator";
 // import { REQUEST } from "@nestjs/core";
 // import { Request } from "express";
 
@@ -44,10 +45,14 @@ export class CoffeesController {
   @Get()
   // findAll(@Res() response: Response) {
   // findAll(@Query() paginationQuery: PaginationQueryDto) {
-  async findAll(@Query() paginationQuery: PaginationQueryDto) {
+  async findAll(
+    @Protocol() protocol: string,
+    @Query() paginationQuery: PaginationQueryDto,
+  ) {
     // const { limit, offset } = paginationQuery;
     // response.status(200).send("This action returns all coffees");
     // return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
+    console.log(protocol);
     await new Promise((resolve) => setTimeout(resolve, 5000));
     return this.coffeesService.findAll(paginationQuery);
   }
