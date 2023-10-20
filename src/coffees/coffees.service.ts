@@ -52,7 +52,7 @@ export class CoffeesService {
     // const coffeesConfig = this.configService.get("coffees.foo");
     // console.log(coffeesConfig);
 
-    console.log(coffeesConfiguration.foo);
+    console.log(this.coffeesConfiguration.foo);
   }
 
   // private coffees: Coffee[] = [
