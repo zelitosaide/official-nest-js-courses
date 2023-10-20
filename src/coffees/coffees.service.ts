@@ -30,13 +30,13 @@ export class CoffeesService {
     private readonly dataSource: DataSource,
     @InjectRepository(Event)
     private readonly eventRepository: Repository<Event>,
-    @Inject(COFFEE_BRANDS) coffeeBrands: string[],
+    @Inject(COFFEE_BRANDS) private readonly coffeeBrands: string[],
     private readonly configService: ConfigService,
   ) {
-    console.log(coffeeBrands);
+    console.log(this.coffeeBrands);
     // console.log("CoffeesService Instantiated");
 
-    const databaseHost = this.configService.get<string>('DATABASE_HOST');
+    const databaseHost = this.configService.get<string>("DATABASE_HOST");
     console.log(databaseHost);
   }
 

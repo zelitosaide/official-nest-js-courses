@@ -23,9 +23,8 @@ import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
 @Controller("coffees")
 export class CoffeesController {
   constructor(
-    private readonly coffeesService: CoffeesService,
-  ) // @Inject(REQUEST) private readonly request: Request,
-  {
+    private readonly coffeesService: CoffeesService, // @Inject(REQUEST) private readonly request: Request,
+  ) {
     // console.log("CoffeesController created");
     // console.log(request);
   }
