@@ -37,7 +37,8 @@ export class CoffeesService {
     // console.log("CoffeesService Instantiated");
 
     const databaseHost = this.configService.get<string>(
-      "DATABASE_HOST",
+      // "DATABASE_HOST",
+      "database.host",
       "localhost",
     );
     console.log(databaseHost);
