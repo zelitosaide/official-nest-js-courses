@@ -47,7 +47,7 @@ export class CoffeesController {
     // const { limit, offset } = paginationQuery;
     // response.status(200).send("This action returns all coffees");
     // return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     return this.coffeesService.findAll(paginationQuery);
   }
 
