@@ -8,6 +8,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoffeeRatingModule } from "./coffee-rating/coffee-rating.module";
 import { ConfigModule } from "@nestjs/config";
 import * as Joi from "joi";
+import appConfig from "./config/app.config";
 // import { DatabaseModule } from "./database/database.module";
 
 @Module({
@@ -22,6 +23,7 @@ import * as Joi from "joi";
         DATABASE_PASSWORD: Joi.required(),
         DATABASE_PORT: Joi.number().default(5433),
       }),
+      load: [appConfig],
     }),
     CoffeesModule,
     TypeOrmModule.forRoot({
