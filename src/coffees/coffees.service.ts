@@ -51,6 +51,8 @@ export class CoffeesService {
 
     // const coffeesConfig = this.configService.get("coffees.foo");
     // console.log(coffeesConfig);
+
+    console.log(coffeesConfiguration.foo);
   }
 
   // private coffees: Coffee[] = [
