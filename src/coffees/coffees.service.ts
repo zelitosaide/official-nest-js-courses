@@ -40,8 +40,11 @@ export class CoffeesService {
     //   "DATABASE_HOST",
     //   "localhost",
     // );
-    const databaseHost = this.configService.get("database.host", "localhost");
+    const databaseHost = this.configService.get("database.host", "localhost 👈");
     console.log(databaseHost);
+
+    const coffeesConfig = this.configService.get("coffees.foo");
+    console.log(coffeesConfig);
   }
 
   // private coffees: Coffee[] = [
