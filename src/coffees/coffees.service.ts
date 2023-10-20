@@ -36,11 +36,11 @@ export class CoffeesService {
     console.log(this.coffeeBrands);
     // console.log("CoffeesService Instantiated");
 
-    const databaseHost = this.configService.get<string>(
-      // "DATABASE_HOST",
-      "database.host",
-      "localhost",
-    );
+    // const databaseHost = this.configService.get<string>(
+    //   "DATABASE_HOST",
+    //   "localhost",
+    // );
+    const databaseHost = this.configService.get("database.host", "localhost");
     console.log(databaseHost);
   }
 
